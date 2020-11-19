@@ -20,7 +20,7 @@ const CommunityComponent : React.FC<Props>= ({community}) => {
   const homeListInThisCommunity = data.filter(home=>home.communityId===community.id);
   useEffect(()=>{
     dispatch(fetchHomes());
-  },[])
+  },[dispatch])
   return (
     <>
     {loading?(<Loader/>):(<Card className="my-3">
