@@ -18,7 +18,6 @@ const CommunityComponent : React.FC<Props>= ({community}) => {
   const dispatch = useDispatch();
   const {loading,data,errors} = useSelector<RootState,HomesState>(state=>state.homesList);
   const homeListInThisCommunity = data.filter(home=>home.communityId===community.id);
-  // const [averagePrice,setAveragePrice]=useState(0);
   useEffect(()=>{
     dispatch(fetchHomes());
   },[])
