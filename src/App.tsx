@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import {Card, Row, Col,Container} from 'react-bootstrap';
-import axios from 'axios';
-import Header from './Header';
-import Community from './Community';
+import React, { useEffect} from 'react';
+import { Row, Col,Container} from 'react-bootstrap';
+import Header from './components/shared/Header';
+import CommunityComponent from './components/Community/Community';
+import {RootState} from './reducers/index';
+import {CommunitiesState}from './reducers/communitiesReducer'
+import {fetchCommunities}  from './actions/communityActions';
+import { useDispatch, useSelector } from "react-redux";
+import Loader from './components/shared/Loader';
 
 const App=()=> {
-  const [communitiesList,setCommunitiesList]= useState([]);
-  useEffect(()=>{
-    const fetchCommunities = async ()=>{
-      const {data}= await axios.get("https://a18fda49-215e-47d1-9dc6-c6136a04a33a.mock.pstmn.io/communities");
-      // console.log(data);
-      setCommunitiesList(data);
-    }
-    fetchCommunities();
-
-  },[])
-    
+  const dispatch = useDispatch();
+   const {data,loading,errors} = useSelector<RootState,CommunitiesState>(state=>state.communitiesList);
+    useEffect(()=>{
+    dispatch(fetchCommunities());
+    },[dispatch])
   return (
    <>
+   
    <Header/>
-   <Container>
+   {loading?(<Loader/>):(<Container>
    <Row>
-     {communitiesList.map((community,index)=>(
+     {data.map((community,index)=>(
               <Col sm={12} md={6} lg={4} xl={3} key={index}>
-                <Community community={community} />
+                <CommunityComponent community={community} />
               </Col>
             ))}
    </Row>
-   </Container>
+   </Container>)}
+   
    </>
   );
 }

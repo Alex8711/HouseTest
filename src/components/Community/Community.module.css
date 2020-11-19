@@ -1,0 +1,4 @@
+.cardImage {
+  height: 15rem;
+  object-fit: cover;
+}

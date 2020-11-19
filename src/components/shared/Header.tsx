@@ -1,6 +1,5 @@
 import React from 'react';
-import {Navbar} from 'react-bootstrap';
-
+import {Navbar,Form,FormControl} from 'react-bootstrap';
 
 const Header=()=>{
 
@@ -11,6 +10,9 @@ return(
       {' '}
       Community Information
     </Navbar.Brand>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+    </Form>
   </Navbar>
 </>)
 }
