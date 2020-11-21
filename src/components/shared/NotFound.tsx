@@ -7,7 +7,7 @@ const NotFound = () => (
         <h2>The page you are looking for is not existed</h2>
         <Link to="/">
             Go Home
-      </Link>
+        </Link>
     </>
 );
 
