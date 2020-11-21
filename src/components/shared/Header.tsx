@@ -9,8 +9,8 @@ const Header = () =>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
           {' '}
-      Community Information
-    </Navbar.Brand>
+        Community Information
+        </Navbar.Brand>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
         </Form>

@@ -2,8 +2,6 @@ import { combineReducers } from "redux";
 import communitiesReducer from './communitiesReducer';
 import homesReducer from './homesReducer';
 
-
-
 const rootReducers = combineReducers({
     communitiesList: communitiesReducer,
     homesList: homesReducer
